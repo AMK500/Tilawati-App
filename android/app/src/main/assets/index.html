@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="theme-color" content="#c5a059">
+  <meta name="description" content="برنامج تلاوتي - القرآن الكريم برسم المصحف الشريف مع وضع التقليب الجانبي والعلوي والتمرير التلقائي والثيمات القرآنية">
+  <title>تلاوتي | القرآن الكريم</title>
+
+  <!-- خطوط عربية قرآنية وحديثة راقية -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="classic">
+
+  <!-- إشعار التحديث التلقائي المباشر من GitHub -->
+  <div id="updateToast" class="update-toast" style="display: none;">
+    <div class="update-toast-content">
+      <span class="update-badge">تحديث جديد متاح 🚀</span>
+      <strong id="updateVersionTitle">يتوفر إصدار جديد من تطبيق تلاوتي</strong>
+      <p id="updateNotesText" style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;"></p>
+      <div class="update-actions">
+        <button id="applyUpdateBtn" class="btn-update-now">تحديث البرنامج الآن ⚡</button>
+        <button id="dismissUpdateBtn" class="btn-update-later">لاحقاً</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-container">
+
+    <!-- شريط الترويسة العلوي -->
+    <header class="top-header">
+      <div class="brand-section">
+        <div class="logo-badge" title="تلاوتي">📖</div>
+        <div class="brand-text">
+          <h1>تِلَاوَتِي</h1>
+          <p id="headerSurahSubtitle">المصحف الشريف</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- فهرس السور -->
+        <button class="icon-btn" id="openIndexBtn" title="فهرس السور (114 سورة)">
+          <span>📋</span>
+        </button>
+        <!-- الثيمات القرآنية -->
+        <button class="icon-btn" id="openThemesBtn" title="الثيمات القرآنية">
+          <span>🎨</span>
+        </button>
+        <!-- إعدادات الخط وتكبير الشاشة -->
+        <button class="icon-btn" id="openSettingsBtn" title="حجم الخط وإعدادات العرض">
+          <span>🔤</span>
+        </button>
+        <!-- الفواصل والعلامات المرجعية -->
+        <button class="icon-btn" id="openBookmarksBtn" title="العلامات المرجعية والفاصلة">
+          <span>🔖</span>
+        </button>
+        <!-- دعاء الختم والأذكار -->
+        <button class="icon-btn" id="openDuaaBtn" title="دعاء ختم القرآن والأذكار">
+          <span>🤲</span>
+        </button>
+        <!-- وضع ملء الشاشة للتركيز الكامل -->
+        <button class="icon-btn" id="toggleFullscreenBtn" title="ملء الشاشة">
+          <span>⛶</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- شريط اختيار وضع القراءة (جانبي أفقي vs علوي عمودي) ومعلومات السورة -->
+    <div class="sub-toolbar">
+      <div class="mode-switcher">
+        <button class="mode-tab active" id="tabHorizontalMode">
+          <span>↔️</span>
+          <span>التقليب الجانبي</span>
+        </button>
+        <button class="mode-tab" id="tabVerticalMode">
+          <span>↕️</span>
+          <span>التقليب العلوي (مستمر)</span>
+        </button>
+      </div>
+
+      <div class="surah-quick-info">
+        <span class="info-badge" id="badgeSurahType">مكية</span>
+        <span class="info-badge" id="badgeVersesCount">7 آيات</span>
+        <span class="info-badge" id="badgeOrientationNotice" style="display:none;">📱 الوضع الأفقي مفعّل</span>
+      </div>
+    </div>
+
+    <!-- مساحة القراءة والمصحف الشريف -->
+    <main class="reader-viewport" id="readerViewport">
+      <div class="mushaf-frame" id="mushafFrame">
+        <div class="mushaf-inner-border">
+
+          <!-- برواز رأس السورة والبسملة -->
+          <div class="surah-header-ornament" id="surahHeaderOrnament">
+            <h2 class="surah-name-display" id="surahTitleDisplay">سُورَةُ الفَاتِحَةِ</h2>
+            <div class="surah-meta-display" id="surahMetaDisplay">ترتيبها: 1 • آياتها: 7 • الجزء الأول</div>
+          </div>
+
+          <div class="bismillah-text" id="bismillahContainer">
+            بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+          </div>
+
+          <!-- الحاوية النصية للآيات القرآنية الشريفة -->
+          <div class="quran-text-container" id="quranTextContainer">
+            <!-- يتم تعبئة الآيات هنا عبر الجافاسكريبت -->
+          </div>
+
+          <!-- أدوات التنقل في وضع التقليب الجانبي (كالمصحف الورقي) -->
+          <div class="flip-controls-wrapper" id="flipControlsWrapper">
+            <button class="flip-nav-btn" id="prevPageBtn">
+              <span>السورة السابقة</span>
+              <span>⬅️</span>
+            </button>
+            <div class="flip-page-indicator" id="flipPageIndicator">سورة 1 من 114</div>
+            <button class="flip-nav-btn" id="nextPageBtn">
+              <span>➡️</span>
+              <span>السورة التالية</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- ⚡ شريط الحركة التلقائية العائم لوضع التقليب العلوي (Auto-Scroll Dock) -->
+    <div class="auto-scroll-dock" id="autoScrollDock" style="display: none;">
+      <button class="dock-play-btn" id="toggleAutoScrollBtn" title="بدء / إيقاف التمرير التلقائي">
+        <span id="playIcon">▶</span>
+      </button>
+
+      <div class="dock-label-group">
+        <span class="dock-title">الحركة التلقائية</span>
+        <span class="dock-speed-value" id="speedDisplayVal">سرعة: 1.5x</span>
+      </div>
+
+      <div class="dock-controls">
+        <button class="speed-step-btn" id="speedDownBtn" title="تقليل السرعة">-</button>
+        <input type="range" class="speed-slider" id="speedSlider" min="0.5" max="5.0" step="0.25" value="1.5" title="التحكم بالسرعة">
+        <button class="speed-step-btn" id="speedUpBtn" title="زيادة السرعة">+</button>
+      </div>
+    </div>
+
+    <!-- 🎧 مشغل التلاوة الصوتية المتزامن مع الآيات -->
+    <div class="audio-player-bar" id="audioPlayerBar">
+      <div class="audio-info">
+        <button class="audio-main-btn" id="audioPlayPauseBtn" title="تشغيل / إيقاف التلاوة">▶</button>
+        <div>
+          <div class="reciter-name" id="currentReciterName">بصوت: مشاري العفاسي</div>
+          <div class="audio-verse-status" id="audioVerseStatus">اضغط للاستماع للسورة الحالية</div>
+        </div>
+      </div>
+
+      <div class="audio-controls">
+        <select id="reciterSelect" class="icon-btn" style="width: auto; padding: 0 8px; font-size: 12px; font-weight:600;" title="تغيير القارئ">
+          <!-- تعبأ بالقراء -->
+        </select>
+        <button class="icon-btn" id="stopAudioBtn" title="إيقاف التلاوة">⏹</button>
+      </div>
+    </div>
+
+    <audio id="quranAudioElement" preload="none"></audio>
+
+  </div>
+
+  <!-- خلفية معتمة للنوافذ والقوائم -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- 📋 قائمة فهرس السور (Side Drawer) -->
+  <aside class="side-drawer" id="surahIndexDrawer">
+    <div class="drawer-header">
+      <h3>فهرس سور القرآن الكريم</h3>
+      <button class="close-modal-btn" id="closeIndexDrawer">&times;</button>
+    </div>
+    <div class="drawer-search-box">
+      <input type="text" id="surahSearchInput" class="search-input" placeholder="ابحث باسم السورة أو رقمها...">
+    </div>
+    <div class="drawer-list-content" id="surahListContainer">
+      <!-- تعبأ السور هنا -->
+    </div>
+  </aside>
+
+  <!-- 🎨 نافذة الثيمات القرآنية -->
+  <aside class="side-drawer" id="themesDrawer">
+    <div class="drawer-header">
+      <h3>الثيمات القرآنية</h3>
+      <button class="close-modal-btn" id="closeThemesDrawer">&times;</button>
+    </div>
+    <div class="drawer-list-content" style="padding: 16px;">
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">اختر اللون المريح لعينيك أثناء القراءة والتدبر:</p>
+      
+      <div class="themes-grid">
+        <div class="theme-card active" data-set-theme="classic">
+          <div class="theme-color-circle" style="background: #f4eee1; border-color: #c5a059;"></div>
+          <strong>المصحف الكلاسيكي</strong>
+          <span style="font-size: 11px; opacity: 0.8;">ورق شاموا دافئ</span>
+        </div>
+
+        <div class="theme-card" data-set-theme="emerald">
+          <div class="theme-color-circle" style="background: #0f3325; border-color: #d4af37;"></div>
+          <strong>الروضة الشريفة</strong>
+          <span style="font-size: 11px; opacity: 0.8;">أخضر زمردي ملكي</span>
+        </div>
+
+        <div class="theme-card" data-set-theme="night">
+          <div class="theme-color-circle" style="background: #121316; border-color: #ab9368;"></div>
+          <strong>التهجد الليلي</strong>
+          <span style="font-size: 11px; opacity: 0.8;">أسود مريح للظلام</span>
+        </div>
+
+        <div class="theme-card" data-set-theme="blue">
+          <div class="theme-color-circle" style="background: #0d1e38; border-color: #e2b963;"></div>
+          <strong>الأزرق الأندلسي</strong>
+          <span style="font-size: 11px; opacity: 0.8;">كحلي وأزرق سماوي</span>
+        </div>
+
+        <div class="theme-card" data-set-theme="pearl">
+          <div class="theme-color-circle" style="background: #ffffff; border-color: #4a6fa5;"></div>
+          <strong>المسك واللؤلؤ</strong>
+          <span style="font-size: 11px; opacity: 0.8;">أبيض ناصع ونقي</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 🔤 إعدادات الخط والشاشات الكبيرة والعرض الأفقي -->
+  <aside class="side-drawer" id="settingsDrawer">
+    <div class="drawer-header">
+      <h3>إعدادات الخط والعرض</h3>
+      <button class="close-modal-btn" id="closeSettingsDrawer">&times;</button>
+    </div>
+    <div class="drawer-list-content" style="padding: 16px;">
+      
+      <div style="margin-bottom: 24px;">
+        <label style="font-weight: 700; font-size: 14px; display: block; margin-bottom: 8px;">حجم خط المصحف:</label>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <button class="icon-btn" id="fontDecBtn" style="font-weight: 800; font-size: 18px;">A-</button>
+          <input type="range" id="fontSizeSlider" min="20" max="52" value="26" style="flex: 1; accent-color: var(--border-gold);">
+          <button class="icon-btn" id="fontIncBtn" style="font-weight: 800; font-size: 18px;">A+</button>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-secondary); margin-top: 6px;">
+          <span>عادي</span>
+          <span>كبير</span>
+          <span>كبير جداً (لكبار السن)</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <label style="font-weight: 700; font-size: 14px; display: block; margin-bottom: 8px;">نوع الخط القرآني:</label>
+        <select id="fontFamilySelect" class="search-input">
+          <option value="'Amiri Quran', serif">خط المصحف العثماني (أميري قرآن)</option>
+          <option value="'Scheherazade New', serif">خط شهرزاد المصحفي</option>
+          <option value="'Cairo', sans-serif">خط النسخ الحديث (القاهرة)</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <label style="font-weight: 700; font-size: 14px; display: block; margin-bottom: 8px;">دعم الهاتف بالعرض (Landscape):</label>
+        <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+          عند تدوير هاتفك أفقياً، يضبط التطبيق تلقائياً الهوامش والشريط العائم ليتناسب مع يديك ويوفر أوسع رؤية مريحة للآيات الشريفة.
+        </p>
+      </div>
+
+      <div style="border-top: 1px dashed var(--border-gold-light); padding-top: 16px;">
+        <label style="font-weight: 700; font-size: 14px; display: block; margin-bottom: 6px;">تحديثات البرنامج (GitHub):</label>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 12px; color: var(--text-secondary);">
+          <span>الإصدار الحالي: <strong id="currentVersionLabel">v1.0.0</strong></span>
+        </div>
+        <button class="flip-nav-btn" id="manualCheckUpdateBtn" style="width: 100%; justify-content: center;">
+          <span>🔄 التحقق من وجود تحديثات الآن</span>
+        </button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- 🔖 الفواصل والعلامات المرجعية -->
+  <aside class="side-drawer" id="bookmarksDrawer">
+    <div class="drawer-header">
+      <h3>الفواصل والعلامات المرجعية</h3>
+      <button class="close-modal-btn" id="closeBookmarksDrawer">&times;</button>
+    </div>
+    <div class="drawer-list-content" style="padding: 16px;">
+      <button class="flip-nav-btn" id="saveCurrentBookmarkBtn" style="width: 100%; justify-content: center; margin-bottom: 16px;">
+        <span>📌 وضع فاصلة عند السورة الحالية</span>
+      </button>
+      <div id="bookmarksListContainer">
+        <!-- تعبأ الفواصل هنا -->
+      </div>
+    </div>
+  </aside>
+
+  <!-- 🤲 نافذة دعاء ختم القرآن الكريم والأذكار -->
+  <aside class="side-drawer" id="duaaDrawer">
+    <div class="drawer-header">
+      <h3>دعاء ختم القرآن الكريم</h3>
+      <button class="close-modal-btn" id="closeDuaaDrawer">&times;</button>
+    </div>
+    <div class="drawer-list-content" style="padding: 16px;" id="khatmDuaaContainer">
+      <!-- تعبأ الأدعية هنا -->
+    </div>
+  </aside>
+
+  <!-- 📖 نافذة التفسير الميسر المنبثقة من الأسفل (Bottom Sheet) -->
+  <div class="tafsir-sheet" id="tafsirSheet">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="color: var(--text-accent); font-size: 17px;" id="tafsirTitle">تفسير الآية الكريمة</h3>
+      <button class="close-modal-btn" id="closeTafsirSheet">&times;</button>
+    </div>
+    <div class="tafsir-verse-highlight" id="tafsirVerseText"></div>
+    <div class="tafsir-content-text" id="tafsirExplanation">جاري جلب التفسير الميسر...</div>
+    
+    <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+      <button class="flip-nav-btn" id="playAyahAudioBtn">
+        <span>🔊 استماع للآية</span>
+      </button>
+      <button class="flip-nav-btn" id="copyAyahBtn">
+        <span>📋 نسخ الآية</span>
+      </button>
+      <button class="flip-nav-btn" id="shareAyahBtn">
+        <span>📤 مشاركة الآية</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- البرمجيات وقواعد البيانات -->
+  <script src="quran-data.js"></script>
+  <script src="tafsir-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

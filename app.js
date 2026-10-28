@@ -898,7 +898,19 @@ function showUpdateToast(updateInfo) {
     applyBtn.textContent = 'جاري التحديث... ⏳';
     applyBtn.disabled = true;
 
-    // مسح الكاش بالكامل وتحميل النسخة الجديدة فوراً
+    // إذا كان يعمل داخل تطبيق الأندرويد الأصلي (APK)
+    if (window.AndroidApp && typeof window.AndroidApp.downloadAndInstallUpdate === 'function') {
+      const apkUrl = updateInfo.apkUrl || 'https://github.com/tilawati/releases/latest/download/app-debug.apk';
+      window.AndroidApp.downloadAndInstallUpdate(apkUrl);
+      setTimeout(() => {
+        toast.style.display = 'none';
+        applyBtn.textContent = 'تحديث البرنامج الآن ⚡';
+        applyBtn.disabled = false;
+      }, 1500);
+      return;
+    }
+
+    // إذا كان يعمل كتطبيق PWA / ويب
     if ('caches' in window) {
       const cacheNames = await caches.keys();
       await Promise.all(cacheNames.map(name => caches.delete(name)));
