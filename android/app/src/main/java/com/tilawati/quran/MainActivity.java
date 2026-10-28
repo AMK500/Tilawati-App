@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
+import android.os.StrictMode;
 import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -16,11 +16,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-import androidx.core.content.FileProvider;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -35,6 +35,16 @@ public class MainActivity extends Activity {
 
         // إبقاء الشاشة مضاءة أثناء القراءة والتلاوة
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        // السماح بتبادل ملفات الـ APK للتحديث المباشر
+        if (Build.VERSION.SDK_INT >= 24) {
+            try {
+                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                m.invoke(null);
+            } catch (Exception e) {
+                // fallback
+            }
+        }
 
         mWebView = new WebView(this);
         setContentView(mWebView);
@@ -59,10 +69,9 @@ public class MainActivity extends Activity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 String url = request.getUrl().toString();
-                // الروابط الخارجية تفتح في المتصفح الخارجي
                 if (url.startsWith("http://") || url.startsWith("https://")) {
                     if (url.contains("alquran.cloud") || url.contains("islamic.network")) {
-                        return false; // السماح لجلب البيانات والصوت
+                        return false;
                     }
                 }
                 return false;
@@ -148,19 +157,7 @@ public class MainActivity extends Activity {
         private void installApk(File apkFile) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                Uri apkUri = FileProvider.getUriForFile(
-                        mContext,
-                        mContext.getPackageName() + ".fileprovider",
-                        apkFile
-                );
-                intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
-                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            } else {
-                intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
-            }
-
+            intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
             mContext.startActivity(intent);
         }
     }
