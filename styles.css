@@ -1,0 +1,1005 @@
+/* ==========================================================================
+   تطبيق «تلاوتي» - أنماط التصميم والثيمات ودعم الشاشات والعرض الأفقي
+   ========================================================================== */
+
+:root {
+  /* الخطوط */
+  --font-quran: "Amiri Quran", "Amiri", "Traditional Arabic", "Scheherazade New", serif;
+  --font-ui: "Cairo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  
+  /* الأحجام الافتراضية */
+  --verse-font-size: 26px;
+  --verse-line-height: 2.2;
+  
+  /* الألوان الافتراضية: ثيم المصحف الشاموا الكلاسيكي */
+  --bg-primary: #fcf9f2;
+  --bg-secondary: #f4eee1;
+  --bg-card: #fffdf9;
+  --bg-surface: #eae3d2;
+  --border-gold: #c5a059;
+  --border-gold-light: rgba(197, 160, 89, 0.35);
+  --text-primary: #2c251e;
+  --text-secondary: #5c5244;
+  --text-accent: #8b6b23;
+  --ayah-number-color: #8b6b23;
+  --highlight-bg: rgba(197, 160, 89, 0.22);
+  --header-bg: rgba(244, 238, 225, 0.92);
+  --shadow-color: rgba(60, 40, 20, 0.08);
+  --button-hover: #e5dbc7;
+  --active-tab: #8b6b23;
+  --active-tab-text: #ffffff;
+}
+
+/* 🌿 ثيم الروضة الشريفة (الزمردي الملكي) */
+[data-theme="emerald"] {
+  --bg-primary: #0a241a;
+  --bg-secondary: #061711;
+  --bg-card: #0f3325;
+  --bg-surface: #144230;
+  --border-gold: #d4af37;
+  --border-gold-light: rgba(212, 175, 55, 0.4);
+  --text-primary: #f5f2e8;
+  --text-secondary: #d0c8b5;
+  --text-accent: #e5c158;
+  --ayah-number-color: #e5c158;
+  --highlight-bg: rgba(212, 175, 55, 0.25);
+  --header-bg: rgba(10, 36, 26, 0.92);
+  --shadow-color: rgba(0, 0, 0, 0.35);
+  --button-hover: #164835;
+  --active-tab: #d4af37;
+  --active-tab-text: #061711;
+}
+
+/* 🌙 ثيم التهجد الليلي (OLED Dark) */
+[data-theme="night"] {
+  --bg-primary: #121316;
+  --bg-secondary: #0c0d0f;
+  --bg-card: #1a1c22;
+  --bg-surface: #242730;
+  --border-gold: #ab9368;
+  --border-gold-light: rgba(171, 147, 104, 0.3);
+  --text-primary: #e6e6e6;
+  --text-secondary: #a3a8b5;
+  --text-accent: #c9b185;
+  --ayah-number-color: #c9b185;
+  --highlight-bg: rgba(201, 177, 133, 0.2);
+  --header-bg: rgba(18, 19, 22, 0.94);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --button-hover: #292d38;
+  --active-tab: #ab9368;
+  --active-tab-text: #0c0d0f;
+}
+
+/* 🔷 ثيم الأزرق الأندلسي */
+[data-theme="blue"] {
+  --bg-primary: #0d1e38;
+  --bg-secondary: #081324;
+  --bg-card: #132b50;
+  --bg-surface: #1a3867;
+  --border-gold: #e2b963;
+  --border-gold-light: rgba(226, 185, 99, 0.38);
+  --text-primary: #f2f6fc;
+  --text-secondary: #b8cde8;
+  --text-accent: #f0cb79;
+  --ayah-number-color: #f0cb79;
+  --highlight-bg: rgba(226, 185, 99, 0.22);
+  --header-bg: rgba(13, 30, 56, 0.93);
+  --shadow-color: rgba(3, 8, 16, 0.45);
+  --button-hover: #1e4178;
+  --active-tab: #e2b963;
+  --active-tab-text: #081324;
+}
+
+/* 🕊️ ثيم المسك واللؤلؤ */
+[data-theme="pearl"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f7f9;
+  --bg-card: #ffffff;
+  --bg-surface: #eef1f5;
+  --border-gold: #4a6fa5;
+  --border-gold-light: rgba(74, 111, 165, 0.3);
+  --text-primary: #1e2430;
+  --text-secondary: #586377;
+  --text-accent: #2d5b94;
+  --ayah-number-color: #2d5b94;
+  --highlight-bg: rgba(74, 111, 165, 0.15);
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --shadow-color: rgba(0, 0, 0, 0.06);
+  --button-hover: #e5ecf5;
+  --active-tab: #2d5b94;
+  --active-tab-text: #ffffff;
+}
+
+/* الأساسيات */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  direction: rtl;
+  font-family: var(--font-ui);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* الحاوية الرئيسية للتطبيق */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* شريط التنقل العلوي */
+.top-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-gold-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  gap: 12px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--border-gold), var(--text-accent));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.brand-text h1 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.brand-text p {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* أدوات التحكم في الترويسة */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-gold-light);
+  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: var(--button-hover);
+  border-color: var(--border-gold);
+  transform: translateY(-1px);
+}
+
+.icon-btn.active {
+  background: var(--active-tab);
+  color: var(--active-tab-text);
+  border-color: var(--border-gold);
+}
+
+/* شريط تبديل الأوضاع والمعلومات */
+.sub-toolbar {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-gold-light);
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mode-switcher {
+  display: inline-flex;
+  background: var(--bg-surface);
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid var(--border-gold-light);
+}
+
+.mode-tab {
+  padding: 6px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.mode-tab.active {
+  background: var(--active-tab);
+  color: var(--active-tab-text);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.surah-quick-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold-light);
+  color: var(--text-accent);
+}
+
+/* ==========================================================================
+   منطقة القراءة (وضع التقليب الجانبي vs وضع التمرير العلوي)
+   ========================================================================== */
+
+.reader-viewport {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px;
+  width: 100%;
+}
+
+/* إطار المصحف الزخرفي */
+.mushaf-frame {
+  width: 100%;
+  max-width: 900px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-gold);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px var(--shadow-color);
+  padding: 24px;
+  position: relative;
+  min-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* إطار داخلي بزخرفة إسلامية رقيقة */
+.mushaf-inner-border {
+  border: 1px solid var(--border-gold-light);
+  border-radius: 12px;
+  padding: 20px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* رأس السورة والبسملة */
+.surah-header-ornament {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  padding: 14px 16px;
+  border: 1px solid var(--border-gold);
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-card) 100%);
+}
+
+.surah-name-display {
+  font-family: var(--font-quran);
+  font-size: 28px;
+  color: var(--text-accent);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.surah-meta-display {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.bismillah-text {
+  text-align: center;
+  font-family: var(--font-quran);
+  font-size: 26px;
+  color: var(--text-accent);
+  margin: 16px 0 24px;
+  letter-spacing: 1px;
+}
+
+/* محتوى الآيات */
+.quran-text-container {
+  font-family: var(--font-quran);
+  font-size: var(--verse-font-size);
+  line-height: var(--verse-line-height);
+  text-align: justify;
+  text-justify: inter-word;
+  color: var(--text-primary);
+  flex: 1;
+  word-spacing: 3px;
+}
+
+/* الآية الواحدة وشكل الرقم */
+.verse-item {
+  display: inline;
+  padding: 2px 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.verse-item:hover {
+  background-color: var(--highlight-bg);
+}
+
+.verse-item.active-audio {
+  background-color: var(--highlight-bg);
+  box-shadow: 0 0 0 2px var(--border-gold);
+}
+
+.ayah-sign {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 6px;
+  color: var(--ayah-number-color);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.65em;
+  width: 1.6em;
+  height: 1.6em;
+  border: 1.5px solid var(--border-gold);
+  border-radius: 50%;
+  background: var(--bg-surface);
+  vertical-align: middle;
+  user-select: none;
+}
+
+/* ==========================================================================
+   وضع التقليب الجانبي (Flip/Book Mode)
+   ========================================================================== */
+.flip-controls-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border-gold-light);
+}
+
+.flip-nav-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.flip-nav-btn:hover:not(:disabled) {
+  background: var(--button-hover);
+  transform: translateY(-1px);
+}
+
+.flip-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.flip-page-indicator {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* شاشات اللمس والتقليب السلس */
+.flip-page-card {
+  animation: fadeInPage 0.28s ease-out;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0.2;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================================
+   وضع التمرير العمودي (Vertical Mode) & شريط الحركة التلقائية (Auto-Scroll)
+   ========================================================================== */
+.vertical-scroll-view {
+  width: 100%;
+}
+
+/* شريط التحكم بالحركة التلقائية العائم */
+.auto-scroll-dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  background: var(--bg-card);
+  border: 2px solid var(--border-gold);
+  border-radius: 40px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 10px 30px var(--shadow-color), 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  animation: slideUpDock 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpDock {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.dock-play-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--border-gold), var(--text-accent));
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.dock-play-btn:hover {
+  transform: scale(1.06);
+}
+
+.dock-label-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.dock-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dock-speed-value {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.dock-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.speed-step-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--border-gold-light);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.speed-step-btn:hover {
+  background: var(--button-hover);
+}
+
+.speed-slider {
+  width: 90px;
+  accent-color: var(--border-gold);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   مشغل التلاوة الصوتي السفلي (Audio Reciter Bar)
+   ========================================================================== */
+.audio-player-bar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 85;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-gold-light);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -4px 15px var(--shadow-color);
+  gap: 12px;
+}
+
+.audio-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reciter-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.audio-verse-status {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.audio-main-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--active-tab);
+  color: var(--active-tab-text);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   القوائم الجانبية والنوافذ المنبثقة (Drawer, Modals, Tafsir Bottom Sheet)
+   ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+
+.drawer-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -380px;
+  width: 360px;
+  max-width: 88vw;
+  background: var(--bg-primary);
+  border-left: 2px solid var(--border-gold);
+  z-index: 210;
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.side-drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  padding: 16px 20px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-gold-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.drawer-search-box {
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-gold-light);
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-gold-light);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--border-gold);
+}
+
+.drawer-list-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.surah-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  background: var(--bg-card);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.surah-list-item:hover {
+  border-color: var(--border-gold);
+  background: var(--button-hover);
+}
+
+.surah-list-item.active {
+  background: var(--active-tab);
+  color: var(--active-tab-text);
+}
+
+.surah-list-item.active .surah-sub-info {
+  color: var(--active-tab-text);
+  opacity: 0.85;
+}
+
+/* نافذة التفسير السريع (Tafsir Modal) */
+.tafsir-sheet {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  max-height: 75vh;
+  background: var(--bg-card);
+  border-top: 3px solid var(--border-gold);
+  border-radius: 20px 20px 0 0;
+  z-index: 220;
+  padding: 20px;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  transition: bottom 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.tafsir-sheet.open {
+  bottom: 0;
+}
+
+.tafsir-verse-highlight {
+  font-family: var(--font-quran);
+  font-size: 22px;
+  line-height: 2;
+  color: var(--text-accent);
+  background: var(--bg-surface);
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-right: 4px solid var(--border-gold);
+  margin-bottom: 16px;
+}
+
+.tafsir-content-text {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+/* بطاقة خيارات الثيمات */
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.theme-card {
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid var(--border-gold-light);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-gold);
+}
+
+.theme-card.active {
+  border-color: var(--border-gold);
+  box-shadow: 0 0 0 2px var(--border-gold);
+}
+
+.theme-color-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   دعم الشاشات الكبيرة + دعم تدوير الهاتف بالعرض (Landscape Orientation)
+   ========================================================================== */
+
+/* 📱💻 وضع الشاشة بالعرض للهواتف والتابلت (Landscape Mode) */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .top-header {
+    padding: 6px 14px;
+  }
+  .logo-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .brand-text h1 {
+    font-size: 16px;
+  }
+  .mushaf-frame {
+    max-width: 95%;
+    padding: 16px;
+    min-height: calc(100vh - 110px);
+  }
+  .mushaf-inner-border {
+    padding: 14px 18px;
+  }
+  .surah-header-ornament {
+    margin-bottom: 14px;
+    padding: 8px 12px;
+  }
+  .surah-name-display {
+    font-size: 22px;
+  }
+  .bismillah-text {
+    margin: 10px 0 16px;
+    font-size: 22px;
+  }
+  /* وضع شريط التمرير التلقائي على الجانب لسهولة الإبهام بالعرض */
+  .auto-scroll-dock {
+    bottom: 14px;
+    left: auto;
+    right: 20px;
+    transform: none;
+    padding: 6px 14px;
+    border-radius: 30px;
+  }
+}
+
+/* 🖥️ وضع الشاشات الكبيرة والعريضة (Desktop / Large Displays / كتاب مفتوح) */
+@media screen and (min-width: 1024px) {
+  .mushaf-frame {
+    max-width: 1050px;
+    padding: 32px 40px;
+  }
+  .mushaf-inner-border {
+    padding: 28px 36px;
+  }
+  .quran-text-container {
+    word-spacing: 4px;
+  }
+  /* إمكانية محاكاة صفحتين متجاورتين في وضع التقليب الجانبي على الشاشات الكبيرة */
+  .book-spread-mode .mushaf-frame {
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .side-drawer {
+    width: 400px;
+  }
+}
+
+/* دعم أحجام الخط الكبيرة جداً لكبار السن وضعاف البصر */
+body.font-xl {
+  --verse-font-size: 36px;
+  --verse-line-height: 2.5;
+}
+
+body.font-xxl {
+  --verse-font-size: 44px;
+  --verse-line-height: 2.8;
+}
+
+/* زر إغلاق النوافذ */
+.close-modal-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.close-modal-btn:hover {
+  color: var(--text-primary);
+}
+
+/* تنسيق بطاقات الأذكار ودعاء الختم */
+.duaa-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold-light);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  font-family: var(--font-quran);
+  font-size: 20px;
+  line-height: 2;
+  color: var(--text-primary);
+  text-align: justify;
+}
+
+/* ==========================================================================
+   إشعار التحديث المباشر من GitHub (In-App Auto-Update Toast)
+   ========================================================================== */
+.update-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  width: 90%;
+  max-width: 440px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-gold);
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  animation: slideDownToast 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDownToast {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.update-toast-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.update-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--border-gold);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.update-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-update-now {
+  flex: 2;
+  background: linear-gradient(135deg, var(--border-gold), var(--text-accent));
+  color: #fff;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease;
+}
+
+.btn-update-now:hover {
+  transform: translateY(-1px);
+}
+
+.btn-update-later {
+  flex: 1;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold-light);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
