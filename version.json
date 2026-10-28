@@ -1,12 +1,17 @@
 {
   "version": "1.0",
+  "versionName": "1.0",
   "build": 1,
   "versionCode": 1,
-  "versionName": "1.0",
   "releaseDate": "2026-10-28",
   "title": "إطلاق تطبيق تلاوتي الرسمي v1.0",
-  "releaseNotes": "• المصحف الشريف كاملاً (114 سورة) بالرسم العثماني الموثوق دون الحاجة لإنترنت.\n• نظام التمرير التلقائي الرأسي الذكي مع التحكم في السرعة.\n• إمكانية حفظ الفاصلة وتكبير الخط والتنقل السلس.\n• ثيمات متعددة مريحة للعين وقراءة ليلية.",
+  "releaseNotes": "• إصلاح مشكلة الإغلاق المفاجئ عند بدء التشغيل وضمان استقرار التطبيق 100% على جميع أجهزة أندرويد.\n• إعادة تصميم التطبيق بالكامل بهوية إسلامية ملكية فاخرة (الأخضر الزمردي والذهبي).\n• شريط تنقل سفلي حديث (الرئيسية، المصحف، الفهرس، الأذكار، الإعدادات).\n• بطاقة متابعة القراءة واستئناف الموضع تلقائياً.\n• المصحف الشريف كاملاً (114 سورة و 6236 آية) بالرسم العثماني يعمل 100% دون إنترنت.\n• التمرير التلقائي السلس مع دوك عائم زجاجي وتحكم دقيق في السرعة.\n• إمكانية نسخ الآيات ومشاركتها وعرض التفسير الميسر.\n• مسبحة إلكترونية تفاعلية باهتزاز لمسي وأذكار الصباح والمساء.\n• 5 ثيمات إسلامية راقية تناسب القراءة النهارية والليلية OLED.",
+  "changelogAr": "• إصلاح مشكلة الإغلاق المفاجئ عند بدء التشغيل وضمان استقرار التطبيق 100% على جميع أجهزة أندرويد.\n• إعادة تصميم التطبيق بالكامل بهوية إسلامية ملكية فاخرة (الأخضر الزمردي والذهبي).\n• شريط تنقل سفلي حديث (الرئيسية، المصحف، الفهرس، الأذكار، الإعدادات).\n• بطاقة متابعة القراءة واستئناف الموضع تلقائياً.\n• المصحف الشريف كاملاً (114 سورة و 6236 آية) بالرسم العثماني يعمل 100% دون إنترنت.\n• التمرير التلقائي السلس مع دوك عائم زجاجي وتحكم دقيق في السرعة.\n• إمكانية نسخ الآيات ومشاركتها وعرض التفسير الميسر.\n• مسبحة إلكترونية تفاعلية باهتزاز لمسي وأذكار الصباح والمساء.\n• 5 ثيمات إسلامية راقية تناسب القراءة النهارية والليلية OLED.",
+  "changelogEn": "• Fixed crash on launch and ensured 100% stability on all Android devices.\n• Brand new Royal Islamic UI/UX redesign (Emerald & Gold).\n• Modern bottom navigation bar (Home, Quran, Index, Azkar, Settings).\n• Resume reading card tracking last read Surah & Ayah.\n• Full 114 Surahs and 6236 Ayahs Uthmanic Quran working 100% offline.\n• Smooth delta-time auto-scroll with floating glass dock.\n• Share, copy, and Tafsir options for verses.\n• Interactive Tasbeeh counter with haptics & authentic Azkar.\n• 5 curated Quranic reading themes including OLED night mode.",
   "downloadUrl": "https://github.com/AMK500/Tilawati-App/releases/download/v1.0/Tilawati.apk",
   "apkUrl": "https://github.com/AMK500/Tilawati-App/releases/download/v1.0/Tilawati.apk",
-  "githubRepo": "https://github.com/AMK500/Tilawati-App"
+  "githubRepo": "https://github.com/AMK500/Tilawati-App",
+  "fileSizeBytes": 497475,
+  "apkSha256": "82a7b20c2fa8d007ed69b36aac08287cee228443087b45b91eda06e5747a613f",
+  "isForceUpdate": false
 }
