@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCF9F2"
+    android:layoutDirection="rtl">
+
+    <!-- شريط الترويسة العلوي -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:background="#F4EEE1">
+
+        <ImageView
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="تلاوتي" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
+
+            <TextView
+                android:id="@+id/tvAppTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تِلَاوَتِي"
+                android:textColor="#2C251E"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvHeaderSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سورة الفاتحة"
+                android:textColor="#8B6B23"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSurahIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="📋 الفهرس"
+            android:textSize="11sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#2C251E"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnBookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="🔖 الفاصلة"
+            android:textSize="11sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#2C251E"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnThemes"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="🎨 الثيم"
+            android:textSize="11sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#2C251E"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnFontSize"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="🔤 الخط"
+            android:textSize="11sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#2C251E"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnDuaa"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="🤲 الدعاء"
+            android:textSize="11sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#2C251E" />
+
+    </LinearLayout>
+
+    <!-- شريط تبديل الأوضاع: تقليب جانبي vs تقليب علوي -->
+    <LinearLayout
+        android:id="@+id/modeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerLayout"
+        android:orientation="horizontal"
+        android:padding="6dp"
+        android:background="#EAE3D2"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnModeHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:text="↔️ التقليب الجانبي"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_button"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnModeVertical"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:text="↕️ التقليب العلوي"
+            android:textSize="12sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#5C5244"
+            android:layout_marginStart="4dp" />
+
+    </LinearLayout>
+
+    <!-- مساحة قراءة المصحف الشريف -->
+    <RelativeLayout
+        android:id="@+id/mushafContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/modeLayout"
+        android:layout_above="@+id/bottomFlipBar"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_mushaf_frame"
+        android:padding="14dp">
+
+        <LinearLayout
+            android:id="@+id/surahHeaderBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingBottom="6dp">
+
+            <TextView
+                android:id="@+id/tvSurahTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سُورَةُ الفَاتِحَةِ"
+                android:textColor="#8B6B23"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSurahDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مكية • آياتها: 7 • صفحة 1"
+                android:textColor="#5C5244"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tvBismillah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+                android:textColor="#8B6B23"
+                android:textSize="20sp"
+                android:paddingTop="6dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollViewQuran"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/surahHeaderBox"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/tvQuranText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#2C251E"
+                android:textSize="24sp"
+                android:lineSpacingMultiplier="1.8"
+                android:padding="8dp" />
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <!-- شريط التنقل في وضع التقليب الجانبي (السابقة / التالية) -->
+    <LinearLayout
+        android:id="@+id/bottomFlipBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="#F4EEE1"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnPrevSurah"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="⬅️ السورة السابقة"
+            android:textSize="12sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#2C251E"
+            android:layout_marginEnd="6dp" />
+
+        <TextView
+            android:id="@+id/tvPageIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 / 114"
+            android:textColor="#8B6B23"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnNextSurah"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="السورة التالية ➡️"
+            android:textSize="12sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#2C251E"
+            android:layout_marginStart="6dp" />
+
+    </LinearLayout>
+
+    <!-- شريط الحركة التلقائية العائم لوضع التقليب العلوي (Auto-Scroll Dock) -->
+    <LinearLayout
+        android:id="@+id/dockAutoScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_dock"
+        android:padding="8dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:elevation="8dp">
+
+        <Button
+            android:id="@+id/btnPlayPauseScroll"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:text="▶"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الحركة التلقائية"
+                android:textColor="#2C251E"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSpeedValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سرعة: 1.5x"
+                android:textColor="#5C5244"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSpeedDown"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="-"
+            android:textSize="16sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#2C251E" />
+
+        <SeekBar
+            android:id="@+id/seekBarSpeed"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:max="50"
+            android:progress="15" />
+
+        <Button
+            android:id="@+id/btnSpeedUp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="+"
+            android:textSize="16sp"
+            android:background="@drawable/bg_button"
+            android:textColor="#2C251E" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+

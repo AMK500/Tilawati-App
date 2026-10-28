@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تلاوتي</string>
+    <string name="mode_horizontal">التقليب الجانبي</string>
+    <string name="mode_vertical">التقليب العلوي</string>
+    <string name="btn_surahs">الفهرس</string>
+    <string name="btn_theme">الثيم</string>
+    <string name="btn_font">الخط</string>
+    <string name="btn_duaa">دعاء الختم</string>
+    <string name="btn_prev">السورة السابقة</string>
+    <string name="btn_next">السورة التالية</string>
+</resources>
+

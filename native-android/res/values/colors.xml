@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gold_primary">#C5A059</color>
+    <color name="gold_light">#E5DBC7</color>
+    <color name="classic_bg">#FCF9F2</color>
+    <color name="classic_card">#FFFDF9</color>
+    <color name="classic_text">#2C251E</color>
+    <color name="classic_accent">#8B6B23</color>
+
+    <color name="emerald_bg">#0A241A</color>
+    <color name="emerald_card">#0F3325</color>
+    <color name="emerald_text">#F5F2E8</color>
+    <color name="emerald_accent">#D4AF37</color>
+
+    <color name="night_bg">#121316</color>
+    <color name="night_card">#1A1C22</color>
+    <color name="night_text">#E6E6E6</color>
+    <color name="night_accent">#C9B185</color>
+
+    <color name="blue_bg">#0D1E38</color>
+    <color name="blue_card">#132B50</color>
+    <color name="blue_text">#F2F6FC</color>
+    <color name="blue_accent">#F0CB79</color>
+
+    <color name="pearl_bg">#FFFFFF</color>
+    <color name="pearl_card">#F8F9FA</color>
+    <color name="pearl_text">#1E2430</color>
+    <color name="pearl_accent">#2D5B94</color>
+</resources>
+

@@ -1,0 +1,1202 @@
+{
+  "surahs": [
+    {
+      "id": 1,
+      "name": "الفاتحة",
+      "transliteration": "Al-Faatiha",
+      "type": "مكية",
+      "totalVerses": 7,
+      "startPage": 1
+    },
+    {
+      "id": 2,
+      "name": "البقرة",
+      "transliteration": "Al-Baqara",
+      "type": "مدنية",
+      "totalVerses": 286,
+      "startPage": 2
+    },
+    {
+      "id": 3,
+      "name": "آل عمران",
+      "transliteration": "Aal-i-Imraan",
+      "type": "مدنية",
+      "totalVerses": 200,
+      "startPage": 50
+    },
+    {
+      "id": 4,
+      "name": "النساء",
+      "transliteration": "An-Nisaa",
+      "type": "مدنية",
+      "totalVerses": 176,
+      "startPage": 77
+    },
+    {
+      "id": 5,
+      "name": "المائدة",
+      "transliteration": "Al-Maaida",
+      "type": "مدنية",
+      "totalVerses": 120,
+      "startPage": 106
+    },
+    {
+      "id": 6,
+      "name": "الأنعام",
+      "transliteration": "Al-An'aam",
+      "type": "مكية",
+      "totalVerses": 165,
+      "startPage": 128
+    },
+    {
+      "id": 7,
+      "name": "الأعراف",
+      "transliteration": "Al-A'raaf",
+      "type": "مكية",
+      "totalVerses": 206,
+      "startPage": 151
+    },
+    {
+      "id": 8,
+      "name": "الأنفال",
+      "transliteration": "Al-Anfaal",
+      "type": "مدنية",
+      "totalVerses": 75,
+      "startPage": 177
+    },
+    {
+      "id": 9,
+      "name": "التوبة",
+      "transliteration": "At-Tawba",
+      "type": "مدنية",
+      "totalVerses": 129,
+      "startPage": 187
+    },
+    {
+      "id": 10,
+      "name": "يونس",
+      "transliteration": "Yunus",
+      "type": "مكية",
+      "totalVerses": 109,
+      "startPage": 208
+    },
+    {
+      "id": 11,
+      "name": "هود",
+      "transliteration": "Hud",
+      "type": "مكية",
+      "totalVerses": 123,
+      "startPage": 221
+    },
+    {
+      "id": 12,
+      "name": "يوسف",
+      "transliteration": "Yusuf",
+      "type": "مكية",
+      "totalVerses": 111,
+      "startPage": 235
+    },
+    {
+      "id": 13,
+      "name": "الرعد",
+      "transliteration": "Ar-Ra'd",
+      "type": "مدنية",
+      "totalVerses": 43,
+      "startPage": 249
+    },
+    {
+      "id": 14,
+      "name": "إبراهيم",
+      "transliteration": "Ibrahim",
+      "type": "مكية",
+      "totalVerses": 52,
+      "startPage": 255
+    },
+    {
+      "id": 15,
+      "name": "الحجر",
+      "transliteration": "Al-Hijr",
+      "type": "مكية",
+      "totalVerses": 99,
+      "startPage": 262
+    },
+    {
+      "id": 16,
+      "name": "النحل",
+      "transliteration": "An-Nahl",
+      "type": "مكية",
+      "totalVerses": 128,
+      "startPage": 267
+    },
+    {
+      "id": 17,
+      "name": "الإسراء",
+      "transliteration": "Al-Israa",
+      "type": "مكية",
+      "totalVerses": 111,
+      "startPage": 282
+    },
+    {
+      "id": 18,
+      "name": "الكهف",
+      "transliteration": "Al-Kahf",
+      "type": "مكية",
+      "totalVerses": 110,
+      "startPage": 293
+    },
+    {
+      "id": 19,
+      "name": "مريم",
+      "transliteration": "Maryam",
+      "type": "مكية",
+      "totalVerses": 98,
+      "startPage": 305
+    },
+    {
+      "id": 20,
+      "name": "طه",
+      "transliteration": "Taa-Haa",
+      "type": "مكية",
+      "totalVerses": 135,
+      "startPage": 312
+    },
+    {
+      "id": 21,
+      "name": "الأنبياء",
+      "transliteration": "Al-Anbiyaa",
+      "type": "مكية",
+      "totalVerses": 112,
+      "startPage": 322
+    },
+    {
+      "id": 22,
+      "name": "الحج",
+      "transliteration": "Al-Hajj",
+      "type": "مدنية",
+      "totalVerses": 78,
+      "startPage": 332
+    },
+    {
+      "id": 23,
+      "name": "المؤمنون",
+      "transliteration": "Al-Muminoon",
+      "type": "مكية",
+      "totalVerses": 118,
+      "startPage": 342
+    },
+    {
+      "id": 24,
+      "name": "النور",
+      "transliteration": "An-Noor",
+      "type": "مدنية",
+      "totalVerses": 64,
+      "startPage": 350
+    },
+    {
+      "id": 25,
+      "name": "الفرقان",
+      "transliteration": "Al-Furqaan",
+      "type": "مكية",
+      "totalVerses": 77,
+      "startPage": 359
+    },
+    {
+      "id": 26,
+      "name": "الشعراء",
+      "transliteration": "Ash-Shu'araa",
+      "type": "مكية",
+      "totalVerses": 227,
+      "startPage": 367
+    },
+    {
+      "id": 27,
+      "name": "النمل",
+      "transliteration": "An-Naml",
+      "type": "مكية",
+      "totalVerses": 93,
+      "startPage": 377
+    },
+    {
+      "id": 28,
+      "name": "القصص",
+      "transliteration": "Al-Qasas",
+      "type": "مكية",
+      "totalVerses": 88,
+      "startPage": 385
+    },
+    {
+      "id": 29,
+      "name": "العنكبوت",
+      "transliteration": "Al-Ankaboot",
+      "type": "مكية",
+      "totalVerses": 69,
+      "startPage": 396
+    },
+    {
+      "id": 30,
+      "name": "الروم",
+      "transliteration": "Ar-Room",
+      "type": "مكية",
+      "totalVerses": 60,
+      "startPage": 404
+    },
+    {
+      "id": 31,
+      "name": "لقمان",
+      "transliteration": "Luqman",
+      "type": "مكية",
+      "totalVerses": 34,
+      "startPage": 411
+    },
+    {
+      "id": 32,
+      "name": "السجدة",
+      "transliteration": "As-Sajda",
+      "type": "مكية",
+      "totalVerses": 30,
+      "startPage": 415
+    },
+    {
+      "id": 33,
+      "name": "الأحزاب",
+      "transliteration": "Al-Ahzaab",
+      "type": "مدنية",
+      "totalVerses": 73,
+      "startPage": 418
+    },
+    {
+      "id": 34,
+      "name": "سبأ",
+      "transliteration": "Saba",
+      "type": "مكية",
+      "totalVerses": 54,
+      "startPage": 428
+    },
+    {
+      "id": 35,
+      "name": "فاطر",
+      "transliteration": "Faatir",
+      "type": "مكية",
+      "totalVerses": 45,
+      "startPage": 434
+    },
+    {
+      "id": 36,
+      "name": "يس",
+      "transliteration": "Yaseen",
+      "type": "مكية",
+      "totalVerses": 83,
+      "startPage": 440
+    },
+    {
+      "id": 37,
+      "name": "الصافات",
+      "transliteration": "As-Saaffaat",
+      "type": "مكية",
+      "totalVerses": 182,
+      "startPage": 446
+    },
+    {
+      "id": 38,
+      "name": "ص",
+      "transliteration": "Saad",
+      "type": "مكية",
+      "totalVerses": 88,
+      "startPage": 453
+    },
+    {
+      "id": 39,
+      "name": "الزمر",
+      "transliteration": "Az-Zumar",
+      "type": "مكية",
+      "totalVerses": 75,
+      "startPage": 458
+    },
+    {
+      "id": 40,
+      "name": "غافر",
+      "transliteration": "Ghafir",
+      "type": "مكية",
+      "totalVerses": 85,
+      "startPage": 467
+    },
+    {
+      "id": 41,
+      "name": "فصلت",
+      "transliteration": "Fussilat",
+      "type": "مكية",
+      "totalVerses": 54,
+      "startPage": 477
+    },
+    {
+      "id": 42,
+      "name": "الشورى",
+      "transliteration": "Ash-Shura",
+      "type": "مكية",
+      "totalVerses": 53,
+      "startPage": 483
+    },
+    {
+      "id": 43,
+      "name": "الزخرف",
+      "transliteration": "Az-Zukhruf",
+      "type": "مكية",
+      "totalVerses": 89,
+      "startPage": 489
+    },
+    {
+      "id": 44,
+      "name": "الدخان",
+      "transliteration": "Ad-Dukhaan",
+      "type": "مكية",
+      "totalVerses": 59,
+      "startPage": 496
+    },
+    {
+      "id": 45,
+      "name": "الجاثية",
+      "transliteration": "Al-Jaathiya",
+      "type": "مكية",
+      "totalVerses": 37,
+      "startPage": 499
+    },
+    {
+      "id": 46,
+      "name": "الأحقاف",
+      "transliteration": "Al-Ahqaaf",
+      "type": "مكية",
+      "totalVerses": 35,
+      "startPage": 502
+    },
+    {
+      "id": 47,
+      "name": "محمد",
+      "transliteration": "Muhammad",
+      "type": "مدنية",
+      "totalVerses": 38,
+      "startPage": 507
+    },
+    {
+      "id": 48,
+      "name": "الفتح",
+      "transliteration": "Al-Fath",
+      "type": "مدنية",
+      "totalVerses": 29,
+      "startPage": 511
+    },
+    {
+      "id": 49,
+      "name": "الحجرات",
+      "transliteration": "Al-Hujuraat",
+      "type": "مدنية",
+      "totalVerses": 18,
+      "startPage": 515
+    },
+    {
+      "id": 50,
+      "name": "ق",
+      "transliteration": "Qaaf",
+      "type": "مكية",
+      "totalVerses": 45,
+      "startPage": 518
+    },
+    {
+      "id": 51,
+      "name": "الذاريات",
+      "transliteration": "Adh-Dhaariyaat",
+      "type": "مكية",
+      "totalVerses": 60,
+      "startPage": 520
+    },
+    {
+      "id": 52,
+      "name": "الطور",
+      "transliteration": "At-Toor",
+      "type": "مكية",
+      "totalVerses": 49,
+      "startPage": 523
+    },
+    {
+      "id": 53,
+      "name": "النجم",
+      "transliteration": "An-Najm",
+      "type": "مكية",
+      "totalVerses": 62,
+      "startPage": 526
+    },
+    {
+      "id": 54,
+      "name": "القمر",
+      "transliteration": "Al-Qamar",
+      "type": "مكية",
+      "totalVerses": 55,
+      "startPage": 528
+    },
+    {
+      "id": 55,
+      "name": "الرحمن",
+      "transliteration": "Ar-Rahmaan",
+      "type": "مدنية",
+      "totalVerses": 78,
+      "startPage": 531
+    },
+    {
+      "id": 56,
+      "name": "الواقعة",
+      "transliteration": "Al-Waaqia",
+      "type": "مكية",
+      "totalVerses": 96,
+      "startPage": 534
+    },
+    {
+      "id": 57,
+      "name": "الحديد",
+      "transliteration": "Al-Hadid",
+      "type": "مدنية",
+      "totalVerses": 29,
+      "startPage": 537
+    },
+    {
+      "id": 58,
+      "name": "المجادلة",
+      "transliteration": "Al-Mujaadila",
+      "type": "مدنية",
+      "totalVerses": 22,
+      "startPage": 542
+    },
+    {
+      "id": 59,
+      "name": "الحشر",
+      "transliteration": "Al-Hashr",
+      "type": "مدنية",
+      "totalVerses": 24,
+      "startPage": 545
+    },
+    {
+      "id": 60,
+      "name": "الممتحنة",
+      "transliteration": "Al-Mumtahana",
+      "type": "مدنية",
+      "totalVerses": 13,
+      "startPage": 549
+    },
+    {
+      "id": 61,
+      "name": "الصف",
+      "transliteration": "As-Saff",
+      "type": "مدنية",
+      "totalVerses": 14,
+      "startPage": 551
+    },
+    {
+      "id": 62,
+      "name": "الجمعة",
+      "transliteration": "Al-Jumu'a",
+      "type": "مدنية",
+      "totalVerses": 11,
+      "startPage": 553
+    },
+    {
+      "id": 63,
+      "name": "المنافقون",
+      "transliteration": "Al-Munaafiqoon",
+      "type": "مدنية",
+      "totalVerses": 11,
+      "startPage": 554
+    },
+    {
+      "id": 64,
+      "name": "التغابن",
+      "transliteration": "At-Taghaabun",
+      "type": "مدنية",
+      "totalVerses": 18,
+      "startPage": 556
+    },
+    {
+      "id": 65,
+      "name": "الطلاق",
+      "transliteration": "At-Talaaq",
+      "type": "مدنية",
+      "totalVerses": 12,
+      "startPage": 558
+    },
+    {
+      "id": 66,
+      "name": "التحريم",
+      "transliteration": "At-Tahreem",
+      "type": "مدنية",
+      "totalVerses": 12,
+      "startPage": 560
+    },
+    {
+      "id": 67,
+      "name": "الملك",
+      "transliteration": "Al-Mulk",
+      "type": "مكية",
+      "totalVerses": 30,
+      "startPage": 562
+    },
+    {
+      "id": 68,
+      "name": "القلم",
+      "transliteration": "Al-Qalam",
+      "type": "مكية",
+      "totalVerses": 52,
+      "startPage": 564
+    },
+    {
+      "id": 69,
+      "name": "الحاقة",
+      "transliteration": "Al-Haaqqa",
+      "type": "مكية",
+      "totalVerses": 52,
+      "startPage": 566
+    },
+    {
+      "id": 70,
+      "name": "المعارج",
+      "transliteration": "Al-Ma'aarij",
+      "type": "مكية",
+      "totalVerses": 44,
+      "startPage": 568
+    },
+    {
+      "id": 71,
+      "name": "نوح",
+      "transliteration": "Nooh",
+      "type": "مكية",
+      "totalVerses": 28,
+      "startPage": 570
+    },
+    {
+      "id": 72,
+      "name": "الجن",
+      "transliteration": "Al-Jinn",
+      "type": "مكية",
+      "totalVerses": 28,
+      "startPage": 572
+    },
+    {
+      "id": 73,
+      "name": "المزمل",
+      "transliteration": "Al-Muzzammil",
+      "type": "مكية",
+      "totalVerses": 20,
+      "startPage": 574
+    },
+    {
+      "id": 74,
+      "name": "المدثر",
+      "transliteration": "Al-Muddathir",
+      "type": "مكية",
+      "totalVerses": 56,
+      "startPage": 575
+    },
+    {
+      "id": 75,
+      "name": "القيامة",
+      "transliteration": "Al-Qiyaama",
+      "type": "مكية",
+      "totalVerses": 40,
+      "startPage": 577
+    },
+    {
+      "id": 76,
+      "name": "الإنسان",
+      "transliteration": "Al-Insaan",
+      "type": "مدنية",
+      "totalVerses": 31,
+      "startPage": 578
+    },
+    {
+      "id": 77,
+      "name": "المرسلات",
+      "transliteration": "Al-Mursalaat",
+      "type": "مكية",
+      "totalVerses": 50,
+      "startPage": 580
+    },
+    {
+      "id": 78,
+      "name": "النبأ",
+      "transliteration": "An-Naba",
+      "type": "مكية",
+      "totalVerses": 40,
+      "startPage": 582
+    },
+    {
+      "id": 79,
+      "name": "النازعات",
+      "transliteration": "An-Naazi'aat",
+      "type": "مكية",
+      "totalVerses": 46,
+      "startPage": 583
+    },
+    {
+      "id": 80,
+      "name": "عبس",
+      "transliteration": "Abasa",
+      "type": "مكية",
+      "totalVerses": 42,
+      "startPage": 585
+    },
+    {
+      "id": 81,
+      "name": "التكوير",
+      "transliteration": "At-Takweer",
+      "type": "مكية",
+      "totalVerses": 29,
+      "startPage": 586
+    },
+    {
+      "id": 82,
+      "name": "الانفطار",
+      "transliteration": "Al-Infitaar",
+      "type": "مكية",
+      "totalVerses": 19,
+      "startPage": 587
+    },
+    {
+      "id": 83,
+      "name": "المطففين",
+      "transliteration": "Al-Mutaffifeen",
+      "type": "مكية",
+      "totalVerses": 36,
+      "startPage": 587
+    },
+    {
+      "id": 84,
+      "name": "الانشقاق",
+      "transliteration": "Al-Inshiqaaq",
+      "type": "مكية",
+      "totalVerses": 25,
+      "startPage": 589
+    },
+    {
+      "id": 85,
+      "name": "البروج",
+      "transliteration": "Al-Burooj",
+      "type": "مكية",
+      "totalVerses": 22,
+      "startPage": 590
+    },
+    {
+      "id": 86,
+      "name": "الطارق",
+      "transliteration": "At-Taariq",
+      "type": "مكية",
+      "totalVerses": 17,
+      "startPage": 591
+    },
+    {
+      "id": 87,
+      "name": "الأعلى",
+      "transliteration": "Al-A'laa",
+      "type": "مكية",
+      "totalVerses": 19,
+      "startPage": 591
+    },
+    {
+      "id": 88,
+      "name": "الغاشية",
+      "transliteration": "Al-Ghaashiya",
+      "type": "مكية",
+      "totalVerses": 26,
+      "startPage": 592
+    },
+    {
+      "id": 89,
+      "name": "الفجر",
+      "transliteration": "Al-Fajr",
+      "type": "مكية",
+      "totalVerses": 30,
+      "startPage": 593
+    },
+    {
+      "id": 90,
+      "name": "البلد",
+      "transliteration": "Al-Balad",
+      "type": "مكية",
+      "totalVerses": 20,
+      "startPage": 594
+    },
+    {
+      "id": 91,
+      "name": "الشمس",
+      "transliteration": "Ash-Shams",
+      "type": "مكية",
+      "totalVerses": 15,
+      "startPage": 595
+    },
+    {
+      "id": 92,
+      "name": "الليل",
+      "transliteration": "Al-Layl",
+      "type": "مكية",
+      "totalVerses": 21,
+      "startPage": 595
+    },
+    {
+      "id": 93,
+      "name": "الضحى",
+      "transliteration": "Ad-Duhaa",
+      "type": "مكية",
+      "totalVerses": 11,
+      "startPage": 596
+    },
+    {
+      "id": 94,
+      "name": "الشرح",
+      "transliteration": "Ash-Sharh",
+      "type": "مكية",
+      "totalVerses": 8,
+      "startPage": 596
+    },
+    {
+      "id": 95,
+      "name": "التين",
+      "transliteration": "At-Teen",
+      "type": "مكية",
+      "totalVerses": 8,
+      "startPage": 597
+    },
+    {
+      "id": 96,
+      "name": "العلق",
+      "transliteration": "Al-Alaq",
+      "type": "مكية",
+      "totalVerses": 19,
+      "startPage": 597
+    },
+    {
+      "id": 97,
+      "name": "القدر",
+      "transliteration": "Al-Qadr",
+      "type": "مكية",
+      "totalVerses": 5,
+      "startPage": 598
+    },
+    {
+      "id": 98,
+      "name": "البينة",
+      "transliteration": "Al-Bayyina",
+      "type": "مدنية",
+      "totalVerses": 8,
+      "startPage": 598
+    },
+    {
+      "id": 99,
+      "name": "الزلزلة",
+      "transliteration": "Az-Zalzala",
+      "type": "مدنية",
+      "totalVerses": 8,
+      "startPage": 599
+    },
+    {
+      "id": 100,
+      "name": "العاديات",
+      "transliteration": "Al-Aadiyaat",
+      "type": "مكية",
+      "totalVerses": 11,
+      "startPage": 599
+    },
+    {
+      "id": 101,
+      "name": "القارعة",
+      "transliteration": "Al-Qaari'a",
+      "type": "مكية",
+      "totalVerses": 11,
+      "startPage": 600
+    },
+    {
+      "id": 102,
+      "name": "التكاثر",
+      "transliteration": "At-Takaathur",
+      "type": "مكية",
+      "totalVerses": 8,
+      "startPage": 600
+    },
+    {
+      "id": 103,
+      "name": "العصر",
+      "transliteration": "Al-Asr",
+      "type": "مكية",
+      "totalVerses": 3,
+      "startPage": 601
+    },
+    {
+      "id": 104,
+      "name": "الهمزة",
+      "transliteration": "Al-Humaza",
+      "type": "مكية",
+      "totalVerses": 9,
+      "startPage": 601
+    },
+    {
+      "id": 105,
+      "name": "الفيل",
+      "transliteration": "Al-Feel",
+      "type": "مكية",
+      "totalVerses": 5,
+      "startPage": 601
+    },
+    {
+      "id": 106,
+      "name": "قريش",
+      "transliteration": "Quraysh",
+      "type": "مكية",
+      "totalVerses": 4,
+      "startPage": 602
+    },
+    {
+      "id": 107,
+      "name": "الماعون",
+      "transliteration": "Al-Maa'oon",
+      "type": "مكية",
+      "totalVerses": 7,
+      "startPage": 602
+    },
+    {
+      "id": 108,
+      "name": "الكوثر",
+      "transliteration": "Al-Kawthar",
+      "type": "مكية",
+      "totalVerses": 3,
+      "startPage": 602
+    },
+    {
+      "id": 109,
+      "name": "الكافرون",
+      "transliteration": "Al-Kaafiroon",
+      "type": "مكية",
+      "totalVerses": 6,
+      "startPage": 603
+    },
+    {
+      "id": 110,
+      "name": "النصر",
+      "transliteration": "An-Nasr",
+      "type": "مدنية",
+      "totalVerses": 3,
+      "startPage": 603
+    },
+    {
+      "id": 111,
+      "name": "المسد",
+      "transliteration": "Al-Masad",
+      "type": "مكية",
+      "totalVerses": 5,
+      "startPage": 603
+    },
+    {
+      "id": 112,
+      "name": "الإخلاص",
+      "transliteration": "Al-Ikhlaas",
+      "type": "مكية",
+      "totalVerses": 4,
+      "startPage": 604
+    },
+    {
+      "id": 113,
+      "name": "الفلق",
+      "transliteration": "Al-Falaq",
+      "type": "مكية",
+      "totalVerses": 5,
+      "startPage": 604
+    },
+    {
+      "id": 114,
+      "name": "الناس",
+      "transliteration": "An-Naas",
+      "type": "مكية",
+      "totalVerses": 6,
+      "startPage": 604
+    }
+  ],
+  "builtin": {
+    "1": {
+      "number": 1,
+      "name": "سُورَةُ الفَاتِحَةِ",
+      "englishName": "Al-Faatiha",
+      "revelationType": "Meccan",
+      "numberOfAyahs": 7,
+      "ayahs": [
+        {
+          "numberInSurah": 1,
+          "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+        },
+        {
+          "numberInSurah": 2,
+          "text": "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ"
+        },
+        {
+          "numberInSurah": 3,
+          "text": "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+        },
+        {
+          "numberInSurah": 4,
+          "text": "مَٰلِكِ يَوْمِ ٱلدِّينِ"
+        },
+        {
+          "numberInSurah": 5,
+          "text": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+        },
+        {
+          "numberInSurah": 6,
+          "text": "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
+        },
+        {
+          "numberInSurah": 7,
+          "text": "صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ"
+        }
+      ]
+    },
+    "36": {
+      "number": 36,
+      "name": "سُورَةُ يسٓ",
+      "englishName": "Yaseen",
+      "revelationType": "Meccan",
+      "numberOfAyahs": 83,
+      "ayahs": [
+        {
+          "numberInSurah": 1,
+          "text": "يسٓ"
+        },
+        {
+          "numberInSurah": 2,
+          "text": "وَٱلْقُرْءَانِ ٱلْحَكِيمِ"
+        },
+        {
+          "numberInSurah": 3,
+          "text": "إِنَّكَ لَمِنَ ٱلْمُرْسَلِينَ"
+        },
+        {
+          "numberInSurah": 4,
+          "text": "عَلَىٰ صِرَٰطٍ مُّسْتَقِيمٍ"
+        },
+        {
+          "numberInSurah": 5,
+          "text": "تَنزِيلَ ٱلْعَزِيزِ ٱلرَّحِيمِ"
+        },
+        {
+          "numberInSurah": 6,
+          "text": "لِتُنذِرَ قَوْمًا مَّآ أُنذِرَ ءَابَآؤُهُمْ فَهُمْ غَٰفِلُونَ"
+        },
+        {
+          "numberInSurah": 7,
+          "text": "لَقَدْ حَقَّ ٱلْقَوْلُ عَلَىٰٓ أَكْثَرِهِمْ فَهُمْ لَا يُؤْمِنُونَ"
+        },
+        {
+          "numberInSurah": 8,
+          "text": "إِنَّا جَعَلْنَا فِىٓ أَعْنَٰقِهِمْ أَغْلَٰلًا فَهِىَ إِلَى ٱلْأَذْقَانِ فَهُم مُّقْمَحُونَ"
+        },
+        {
+          "numberInSurah": 9,
+          "text": "وَجَعَلْنَا مِنۢ بَيْنِ أَيْدِيهِمْ سَدًّا وَمِنْ خَلْفِهِمْ سَدًّا فَأَغْشَيْنَٰهُمْ فَهُمْ لَا يُبْصِرُونَ"
+        },
+        {
+          "numberInSurah": 10,
+          "text": "وَسَوَآءٌ عَلَيْهِمْ ءَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ"
+        },
+        {
+          "numberInSurah": 11,
+          "text": "إِنَّمَا تُنذِرُ مَنِ ٱتَّبَعَ ٱلذِّكْرَ وَخَشِىَ ٱلرَّحْمَٰنَ بِٱلْغَيْبِ ۖ فَبَشِّرْهُ بِمَغْفِرَةٍ وَأَجْرٍ كَرِيمٍ"
+        },
+        {
+          "numberInSurah": 12,
+          "text": "إِنَّا نَحْنُ نُحْىِ ٱلْمَوْتَىٰ وَنَكْتُبُ مَا قَدَّمُوا۟ وَءَاثَٰرَهُمْ ۚ وَكُلَّ شَىْءٍ أَحْصَيْنَٰهُ فِىٓ إِمَامٍ مُّبِينٍ"
+        }
+      ]
+    },
+    "67": {
+      "number": 67,
+      "name": "سُورَةُ المُلْكِ",
+      "englishName": "Al-Mulk",
+      "revelationType": "Meccan",
+      "numberOfAyahs": 30,
+      "ayahs": [
+        {
+          "numberInSurah": 1,
+          "text": "تَبَٰرَكَ ٱلَّذِى بِيَدِهِ ٱلْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ"
+        },
+        {
+          "numberInSurah": 2,
+          "text": "ٱلَّذِى خَلَقَ ٱلْمَوْتَ وَٱلْحَيَوٰةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا ۚ وَهُوَ ٱلْعَزِيزُ ٱلْغَفُورُ"
+        },
+        {
+          "numberInSurah": 3,
+          "text": "ٱلَّذِى خَلَقَ سَبْعَ سَمَٰوَٰتٍ طِبَاقًا ۖ مَّا تَرَىٰ فِى خَلْقِ ٱلرَّحْمَٰنِ مِن تَفَٰوُتٍ ۖ فَٱرْجِعِ ٱلْبَصَرَ هَلْ تَرَىٰ مِن فُطُورٍ"
+        },
+        {
+          "numberInSurah": 4,
+          "text": "ثُمَّ ٱرْجِعِ ٱلْبَصَرَ كَرَّتَيْنِ يَنقَلِبْ إِلَيْكَ ٱلْبَصَرُ خَاسِئًا وَهُوَ حَسِيرٌ"
+        },
+        {
+          "numberInSurah": 5,
+          "text": "وَلَقَدْ زَيَّنَّا ٱلسَّمَآءَ ٱلدُّنْيَا بِمَصَٰبِيحَ وَجَعَلْنَٰهَا رُجُومًا لِّلشَّيَٰطِينِ ۖ وَأَعْتَدْنَا لَهُمْ عَذَابَ ٱلسَّعِيرِ"
+        },
+        {
+          "numberInSurah": 6,
+          "text": "وَلِلَّذِينَ كَفَرُوا۟ بِرَبِّهِمْ عَذَابُ جَهَنَّمَ ۖ وَبِئْسَ ٱلْمَصِيرُ"
+        },
+        {
+          "numberInSurah": 7,
+          "text": "إِذَآ أُلْقُوا۟ فِيهَا سَمِعُوا۟ لَهَا شَهِيقًا وَهِىَ تَفُورُ"
+        },
+        {
+          "numberInSurah": 8,
+          "text": "تَكَادُ تَمَيَّزُ مِنَ ٱلْغَيْظِ ۖ كُلَّمَآ أُلْقِىَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَآ أَلَمْ يَأْتِكُمْ نَذِيرٌ"
+        },
+        {
+          "numberInSurah": 9,
+          "text": "قَالُوا۟ بَلَىٰ قَدْ جَآءَنَا نَذِيرٌ فَكَذَّبْنَا وَقُلْنَا مَا نَزَّلَ ٱللَّهُ مِن شَىْءٍ إِنْ أَنتُمْ إِلَّا فِى ضَلَٰلٍ كَبِيرٍ"
+        },
+        {
+          "numberInSurah": 10,
+          "text": "وَقَالُوا۟ لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ مَا كُنَّا فِىٓ أَصْحَٰبِ ٱلسَّعِيرِ"
+        },
+        {
+          "numberInSurah": 11,
+          "text": "فَٱعْتَرَفُوا۟ بِذَنۢبِهِمْ فَسُحْقًا لِّأَصْحَٰبِ ٱلسَّعِيرِ"
+        },
+        {
+          "numberInSurah": 12,
+          "text": "إِنَّ ٱلَّذِينَ يَخْشَوْنَ رَبَّهُم بِٱلْغَيْبِ لَهُم مَّغْفِرَةٌ وَأَجْرٌ كَبِيرٌ"
+        },
+        {
+          "numberInSurah": 13,
+          "text": "وَأَسِرُّوا۟ قَوْلَكُمْ أَوِ ٱجْهَرُوا۟ بِهِۦٓ ۖ إِنَّهُۥ عَلِيمٌۢ بِذَاتِ ٱلصُّدُورِ"
+        },
+        {
+          "numberInSurah": 14,
+          "text": "أَلَا يَعْلَمُ مَنْ خَلَقَ وَهُوَ ٱللَّطِيفُ ٱلْخَبِيرُ"
+        },
+        {
+          "numberInSurah": 15,
+          "text": "هُوَ ٱلَّذِى جَعَلَ لَكُمُ ٱلْأَرْضَ ذَلُولًا فَٱمْشُوا۟ فِى مَنَاكِبِهَا وَكُلُوا۟ مِن رِّزْقِهِۦ ۖ وَإِلَيْهِ ٱلنُّشُورُ"
+        }
+      ]
+    },
+    "112": {
+      "number": 112,
+      "name": "سُورَةُ الإِخْلَاصِ",
+      "englishName": "Al-Ikhlaas",
+      "revelationType": "Meccan",
+      "numberOfAyahs": 4,
+      "ayahs": [
+        {
+          "numberInSurah": 1,
+          "text": "قُلْ هُوَ ٱللَّهُ أَحَدٌ"
+        },
+        {
+          "numberInSurah": 2,
+          "text": "ٱللَّهُ ٱلصَّمَدُ"
+        },
+        {
+          "numberInSurah": 3,
+          "text": "لَمْ يَلِدْ وَلَمْ يُولَدْ"
+        },
+        {
+          "numberInSurah": 4,
+          "text": "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ"
+        }
+      ]
+    },
+    "113": {
+      "number": 113,
+      "name": "سُورَةُ الفَلَقِ",
+      "englishName": "Al-Falaq",
+      "revelationType": "Meccan",
+      "numberOfAyahs": 5,
+      "ayahs": [
+        {
+          "numberInSurah": 1,
+          "text": "قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ"
+        },
+        {
+          "numberInSurah": 2,
+          "text": "مِن شَرِّ مَا خَلَقَ"
+        },
+        {
+          "numberInSurah": 3,
+          "text": "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ"
+        },
+        {
+          "numberInSurah": 4,
+          "text": "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ"
+        },
+        {
+          "numberInSurah": 5,
+          "text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ"
+        }
+      ]
+    },
+    "114": {
+      "number": 114,
+      "name": "سُورَةُ النَّاسِ",
+      "englishName": "An-Naas",
+      "revelationType": "Meccan",
+      "numberOfAyahs": 6,
+      "ayahs": [
+        {
+          "numberInSurah": 1,
+          "text": "قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ"
+        },
+        {
+          "numberInSurah": 2,
+          "text": "مَلِكِ ٱلنَّاسِ"
+        },
+        {
+          "numberInSurah": 3,
+          "text": "إِلَٰهِ ٱلنَّاسِ"
+        },
+        {
+          "numberInSurah": 4,
+          "text": "مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ"
+        },
+        {
+          "numberInSurah": 5,
+          "text": "ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ"
+        },
+        {
+          "numberInSurah": 6,
+          "text": "مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ"
+        }
+      ]
+    }
+  },
+  "reciters": [
+    {
+      "id": "ar.alafasy",
+      "name": "مشاري بن راشد العفاسي",
+      "style": "مرتل"
+    },
+    {
+      "id": "ar.abdulbasitmurattal",
+      "name": "عبد الباسط عبد الصمد",
+      "style": "مرتل"
+    },
+    {
+      "id": "ar.husary",
+      "name": "محمود خليل الحصري",
+      "style": "معلم ومتقن"
+    },
+    {
+      "id": "ar.minshawi",
+      "name": "محمد صديق المنشاوي",
+      "style": "خاشع"
+    },
+    {
+      "id": "ar.saoodshuraym",
+      "name": "سعود الشريم",
+      "style": "مرتل الحرم"
+    }
+  ],
+  "duaa": [
+    "اللَّهُمَّ ارْحَمْنِي بِالقُرْآنِ، وَاجْعَلْهُ لِي إِمَاماً وَنُوراً وَهُدًى وَرَحْمَةً.",
+    "اللَّهُمَّ ذَكِّرْنِي مِنْهُ مَا نَسِيتُ، وَعَلِّمْنِي مِنْهُ مَا جَهِلْتُ، وَارْزُقْنِي تِلاَوَتَهُ آنَاءَ اللَّيْلِ وَأَطْرَافَ النَّهَارِ، وَاجْعَلْهُ لِي حُجَّةً يَا رَبَّ العَالَمِينَ.",
+    "اللَّهُمَّ أَصْلِحْ لِي دِينِي الَّذِي هُوَ عِصْمَةُ أَمْرِي، وَأَصْلِحْ لِي دُنْيَايَ الَّتِي فِيهَا مَعَاشِي، وَأَصْلِحْ لِي آخِرَتِي الَّتِي فِيهَا مَعَادِي.",
+    "اللَّهُمَّ اجْعَلْ خَيْرَ عُمْرِي آخِرَهُ، وَخَيْرَ عَمَلِي خَوَاتِمَهُ، وَخَيْرَ أَيَّامِي يَوْمَ أَلْقَاكَ فِيهِ.",
+    "اللَّهُمَّ لَا تَدَعْ لَنَا ذَنْباً إِلَّا غَفَرْتَهُ، وَلَا هَمّاً إِلَّا فَرَّجْتَهُ، وَلَا دَيْناً إِلَّا قَضَيْتَهُ، وَلَا حَاجَةً مِنْ حَوَائِجِ الدُّنْيَا وَالآخِرَةِ إِلَّا قَضَيْتَهَا يَا أَرْحَمَ الرَّاحِمِينَ."
+  ]
+}
