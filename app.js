@@ -12,7 +12,7 @@
  */
 
 // حالة التطبيق العامة
-const CURRENT_APP_VERSION = "1.0.0";
+const CURRENT_APP_VERSION = "1.0";
 
 const state = {
   currentSurahId: 1,

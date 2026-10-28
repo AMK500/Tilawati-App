@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tilawati.quran"
     android:versionCode="1"
-    android:versionName="1.0.0">
+    android:versionName="1.0">
 
     <!-- أذونات الإنترنت وإبقاء الشاشة مضاءة أثناء القراءة والتحديث التلقائي -->
     <uses-permission android:name="android.permission.INTERNET" />
