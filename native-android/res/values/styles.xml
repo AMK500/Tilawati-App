@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Tilawati" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">#C5A059</item>
-        <item name="android:navigationBarColor">#FCF9F2</item>
-        <item name="android:windowBackground">@color/classic_bg</item>
+        <item name="android:statusBarColor">@color/primary_emerald</item>
+        <item name="android:navigationBarColor">@color/surface_cream</item>
+        <item name="android:windowBackground">@color/bg_cream</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
     </style>
 </resources>
-

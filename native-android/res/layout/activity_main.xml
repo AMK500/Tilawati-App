@@ -3,22 +3,24 @@
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FCF9F2"
+    android:background="@color/bg_cream"
     android:layoutDirection="rtl">
 
-    <!-- شريط الترويسة العلوي -->
+    <!-- شريط التطبيق العلوي الحديث -->
     <LinearLayout
-        android:id="@+id/headerLayout"
+        android:id="@+id/topAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:orientation="horizontal"
-        android:padding="8dp"
         android:gravity="center_vertical"
-        android:background="#F4EEE1">
+        android:paddingStart="16dp"
+        android:paddingEnd="12dp"
+        android:background="@color/surface_cream"
+        android:elevation="3dp">
 
         <ImageView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
             android:src="@mipmap/ic_launcher"
             android:contentDescription="تلاوتي" />
 
@@ -27,299 +29,996 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_marginStart="8dp">
+            android:layout_marginStart="10dp">
 
             <TextView
-                android:id="@+id/tvAppTitle"
+                android:id="@+id/tvHeaderAppTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="تِلَاوَتِي"
-                android:textColor="#2C251E"
-                android:textSize="18sp"
+                android:textColor="@color/primary_emerald"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvHeaderSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="سورة الفاتحة"
-                android:textColor="#8B6B23"
-                android:textSize="12sp" />
+                android:text="المصحف الشريف"
+                android:textColor="@color/gold_accent_dark"
+                android:textSize="11sp" />
         </LinearLayout>
 
+        <!-- أزرار الإجراءات السريعة في الشريط العلوي -->
         <Button
-            android:id="@+id/btnSurahIndex"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnQuickSearch"
+            android:layout_width="38dp"
             android:layout_height="38dp"
-            android:text="📋 الفهرس"
-            android:textSize="11sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#2C251E"
-            android:layout_marginEnd="4dp" />
+            android:text="🔍"
+            android:textSize="14sp"
+            android:background="@drawable/bg_button_outline"
+            android:layout_marginEnd="6dp" />
 
         <Button
-            android:id="@+id/btnBookmark"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnQuickTheme"
+            android:layout_width="38dp"
             android:layout_height="38dp"
-            android:text="🔖 الفاصلة"
-            android:textSize="11sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#2C251E"
-            android:layout_marginEnd="4dp" />
+            android:text="🎨"
+            android:textSize="14sp"
+            android:background="@drawable/bg_button_outline"
+            android:layout_marginEnd="6dp" />
 
         <Button
-            android:id="@+id/btnThemes"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnQuickUpdate"
+            android:layout_width="38dp"
             android:layout_height="38dp"
-            android:text="🎨 الثيم"
-            android:textSize="11sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#2C251E"
-            android:layout_marginEnd="4dp" />
-
-        <Button
-            android:id="@+id/btnFontSize"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:text="🔤 الخط"
-            android:textSize="11sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#2C251E"
-            android:layout_marginEnd="4dp" />
-
-        <Button
-            android:id="@+id/btnDuaa"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:text="🤲 الدعاء"
-            android:textSize="11sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#2C251E" />
+            android:text="🔄"
+            android:textSize="14sp"
+            android:background="@drawable/bg_button_outline" />
 
     </LinearLayout>
 
-    <!-- شريط تبديل الأوضاع: تقليب جانبي vs تقليب علوي -->
+    <!-- شريط التنقل السفلي الفاخر -->
     <LinearLayout
-        android:id="@+id/modeLayout"
+        android:id="@+id/bottomNavBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/headerLayout"
+        android:layout_height="62dp"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:padding="6dp"
-        android:background="#EAE3D2"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btnModeHorizontal"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_weight="1"
-            android:text="↔️ التقليب الجانبي"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:background="@drawable/bg_button"
-            android:textColor="#FFFFFF"
-            android:layout_marginEnd="4dp" />
-
-        <Button
-            android:id="@+id/btnModeVertical"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_weight="1"
-            android:text="↕️ التقليب العلوي"
-            android:textSize="12sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#5C5244"
-            android:layout_marginStart="4dp" />
-
-    </LinearLayout>
-
-    <!-- مساحة قراءة المصحف الشريف -->
-    <RelativeLayout
-        android:id="@+id/mushafContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/modeLayout"
-        android:layout_above="@+id/bottomFlipBar"
-        android:layout_margin="12dp"
-        android:background="@drawable/bg_mushaf_frame"
-        android:padding="14dp">
+        android:background="@drawable/bg_nav_bottom"
+        android:elevation="8dp"
+        android:gravity="center_vertical">
 
         <LinearLayout
-            android:id="@+id/surahHeaderBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:id="@+id/navItemHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
-            android:paddingBottom="6dp">
-
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
             <TextView
-                android:id="@+id/tvSurahTitle"
+                android:id="@+id/tvNavHomeIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="سُورَةُ الفَاتِحَةِ"
-                android:textColor="#8B6B23"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
+                android:text="🏠"
+                android:textSize="18sp" />
             <TextView
-                android:id="@+id/tvSurahDetails"
+                android:id="@+id/tvNavHomeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="مكية • آياتها: 7 • صفحة 1"
-                android:textColor="#5C5244"
+                android:text="الرئيسية"
+                android:textColor="@color/primary_emerald"
+                android:textStyle="bold"
                 android:textSize="11sp" />
-
-            <TextView
-                android:id="@+id/tvBismillah"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
-                android:textColor="#8B6B23"
-                android:textSize="20sp"
-                android:paddingTop="6dp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/navItemReader"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/tvNavReaderIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📖"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvNavReaderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="المصحف"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navItemIndex"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/tvNavIndexIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📋"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvNavIndexText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الفهرس"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navItemAzkar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/tvNavAzkarIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🤲"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvNavAzkarText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الأذكار"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navItemSettings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:id="@+id/tvNavSettingsIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚙️"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvNavSettingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الإعدادات"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- حاوية المحتوى الرئيسية للتبويبات -->
+    <RelativeLayout
+        android:id="@+id/mainContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topAppBar"
+        android:layout_above="@id/bottomNavBar">
+
+        <!-- ======================================================== -->
+        <!-- التبويب 1: الشاشة الرئيسية (Home Dashboard) -->
+        <!-- ======================================================== -->
         <ScrollView
-            android:id="@+id/scrollViewQuran"
+            android:id="@+id/tabViewHome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/surahHeaderBox"
-            android:fillViewport="true"
-            android:scrollbars="vertical">
+            android:visibility="visible">
 
-            <TextView
-                android:id="@+id/tvQuranText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#2C251E"
-                android:textSize="24sp"
-                android:lineSpacingMultiplier="1.8"
-                android:padding="8dp" />
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- بطاقة متابعة القراءة الملكية -->
+                <RelativeLayout
+                    android:id="@+id/cardResumeReading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_emerald"
+                    android:padding="20dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/tvResumeHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔖 آخر موضع للقراءة"
+                        android:textColor="@color/gold_accent_light"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvResumeSurahName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvResumeHeader"
+                        android:layout_marginTop="6dp"
+                        android:text="سُورَةُ الفَاتِحَةِ"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvResumeDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvResumeSurahName"
+                        android:layout_marginTop="4dp"
+                        android:text="الجزء الأول • الصفحة 1 • آياتها: 7"
+                        android:textColor="#D5E8DD"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/btnResumeReading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="متابعة القراءة 📖"
+                        android:textColor="@color/primary_emerald_dark"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:background="@drawable/bg_button_gold"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp" />
+
+                </RelativeLayout>
+
+                <!-- بطاقات الوصول السريع -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="الوصول السريع"
+                    android:textColor="@color/primary_emerald"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/btnQuickGoQuran"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_soft"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📖"
+                            android:textSize="22sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="المصحف"
+                            android:textColor="@color/primary_emerald"
+                            android:textStyle="bold"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnQuickGoIndex"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_soft"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📋"
+                            android:textSize="22sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="الفهرس"
+                            android:textColor="@color/primary_emerald"
+                            android:textStyle="bold"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnQuickGoBookmark"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_soft"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="8dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔖"
+                            android:textSize="22sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="العلامات"
+                            android:textColor="@color/primary_emerald"
+                            android:textStyle="bold"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnQuickGoAzkar"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_soft"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🤲"
+                            android:textSize="22sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="الأذكار"
+                            android:textColor="@color/primary_emerald"
+                            android:textStyle="bold"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- بطاقة الآية اليومية المباركة -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_soft"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✨ آية كريمة للتأمل"
+                        android:textColor="@color/gold_accent_dark"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDailyVerseText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="﴿ ٱلَّذِينَ ءَامَنُوا۟ وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ ٱللَّهِ ۗ أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ ﴾"
+                        android:textColor="@color/text_main"
+                        android:textSize="17sp"
+                        android:lineSpacingMultiplier="1.5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="6dp"
+                        android:text="[ سورة الرعد: آية 28 ]"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- ======================================================== -->
+        <!-- التبويب 2: شاشة قارئ المصحف الشريف (Quran Reader Tab) -->
+        <!-- ======================================================== -->
+        <RelativeLayout
+            android:id="@+id/tabViewReader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <!-- شريط خيارات القراءة العلوي (نمط التقليب + حجم الخط) -->
+            <LinearLayout
+                android:id="@+id/readerTopControls"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@color/surface_cream">
+
+                <Button
+                    android:id="@+id/btnModeHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:text="↔️ التقليب الجانبي"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_button_gold"
+                    android:layout_marginEnd="6dp" />
+
+                <Button
+                    android:id="@+id/btnModeVertical"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:text="↕️ التمرير التلقائي"
+                    android:textSize="11sp"
+                    android:textColor="@color/text_muted"
+                    android:background="@drawable/bg_button_outline"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btnFontDecrease"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="A-"
+                    android:textSize="11sp"
+                    android:background="@drawable/bg_button_outline"
+                    android:layout_marginEnd="4dp" />
+
+                <Button
+                    android:id="@+id/btnFontIncrease"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="A+"
+                    android:textSize="11sp"
+                    android:background="@drawable/bg_button_outline" />
+
+            </LinearLayout>
+
+            <!-- شريط التنقل السفلي في نمط التقليب الجانبي -->
+            <LinearLayout
+                android:id="@+id/bottomFlipBar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@color/surface_cream">
+
+                <Button
+                    android:id="@+id/btnPrevSurah"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="⬅️ السورة السابقة"
+                    android:textSize="12sp"
+                    android:background="@drawable/bg_button_outline"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:id="@+id/tvPageIndex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 / 114"
+                    android:textColor="@color/primary_emerald"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp" />
+
+                <Button
+                    android:id="@+id/btnNextSurah"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="السورة التالية ➡️"
+                    android:textSize="12sp"
+                    android:background="@drawable/bg_button_outline"
+                    android:layout_marginStart="6dp" />
+
+            </LinearLayout>
+
+            <!-- مساحة النص القرآني والإطار الزخرفي -->
+            <RelativeLayout
+                android:id="@+id/mushafReaderBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/readerTopControls"
+                android:layout_above="@id/bottomFlipBar"
+                android:padding="8dp">
+
+                <ScrollView
+                    android:id="@+id/scrollViewQuran"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    android:scrollbars="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_mushaf_frame"
+                        android:padding="16dp">
+
+                        <!-- ترويسة السورة الإسلامية الفاخرة -->
+                        <RelativeLayout
+                            android:id="@+id/surahHeaderBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_surah_banner"
+                            android:padding="12dp"
+                            android:layout_marginBottom="16dp">
+
+                            <TextView
+                                android:id="@+id/tvSurahDetails"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:text="مكية • 7 آيات"
+                                android:textColor="#DFBA73"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvSurahTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="سُورَةُ الفَاتِحَةِ"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSurahPageBadge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:text="ص 1"
+                                android:textColor="#DFBA73"
+                                android:textSize="12sp" />
+
+                        </RelativeLayout>
+
+                        <!-- البسملة الشريفة -->
+                        <TextView
+                            android:id="@+id/tvBismillah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+                            android:textColor="@color/primary_emerald"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="16dp" />
+
+                        <!-- النص القرآني المتصل بالرسم العثماني -->
+                        <TextView
+                            android:id="@+id/tvQuranText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_main"
+                            android:textSize="24sp"
+                            android:lineSpacingMultiplier="1.9"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:text="— صدق الله العظيم —"
+                            android:textColor="@color/gold_accent_dark"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </RelativeLayout>
+
+            <!-- دوك التمرير التلقائي العائم الفاخر (Floating Auto-Scroll Dock) -->
+            <LinearLayout
+                android:id="@+id/dockAutoScroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/bg_dock_modern"
+                android:padding="8dp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:elevation="10dp">
+
+                <Button
+                    android:id="@+id/btnPlayPauseScroll"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:text="▶"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_button_gold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="التمرير التلقائي"
+                        android:textColor="@color/primary_emerald"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSpeedValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="سرعة: 1.5x"
+                        android:textColor="@color/gold_accent_dark"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSpeedDown"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="-"
+                    android:textSize="16sp"
+                    android:background="@drawable/bg_button_outline"
+                    android:textColor="@color/text_main" />
+
+                <SeekBar
+                    android:id="@+id/seekBarSpeed"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:max="50"
+                    android:progress="15" />
+
+                <Button
+                    android:id="@+id/btnSpeedUp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="+"
+                    android:textSize="16sp"
+                    android:background="@drawable/bg_button_outline"
+                    android:textColor="@color/text_main" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- ======================================================== -->
+        <!-- التبويب 3: فهرس السور والبحث الشامل (Index & Search Tab) -->
+        <!-- ======================================================== -->
+        <LinearLayout
+            android:id="@+id/tabViewIndex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <!-- شريط البحث الفوري -->
+            <EditText
+                android:id="@+id/etSearchSurahs"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_search_box"
+                android:hint="🔍 ابحث بالاسم أو رقم السورة أو الآية..."
+                android:textColor="@color/text_main"
+                android:textColorHint="@color/text_muted"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- قائمة السور القابلة للتمرير -->
+            <ListView
+                android:id="@+id/listViewSurahs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/divider_color"
+                android:dividerHeight="1dp" />
+
+        </LinearLayout>
+
+        <!-- ======================================================== -->
+        <!-- التبويب 4: الأذكار والمسبحة الإلكترونية (Azkar Tab) -->
+        <!-- ======================================================== -->
+        <ScrollView
+            android:id="@+id/tabViewAzkar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📿 المسبحة الإلكترونية"
+                    android:textColor="@color/primary_emerald"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- دائرة التسبيح التفاعلية -->
+                <RelativeLayout
+                    android:id="@+id/circleTasbeeh"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/bg_badge"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/tvTasbeehCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="0"
+                        android:textColor="@color/primary_emerald"
+                        android:textSize="44sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvTasbeehCount"
+                        android:layout_centerHorizontal="true"
+                        android:text="المس للتسبيح"
+                        android:textColor="@color/gold_accent_dark"
+                        android:textSize="11sp" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btnResetTasbeeh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="إعادة ضبط العداد"
+                    android:textSize="11sp"
+                    android:background="@drawable/bg_button_outline"
+                    android:textColor="@color/text_muted"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- أقسام أذكار المسلم المأثورة -->
+                <Button
+                    android:id="@+id/btnMorningAzkar"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="☀️ أذكار الصباح كاملة"
+                    android:textColor="@color/primary_emerald"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_card_soft"
+                    android:layout_marginBottom="10dp" />
+
+                <Button
+                    android:id="@+id/btnEveningAzkar"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="🌙 أذكار المساء كاملة"
+                    android:textColor="@color/primary_emerald"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_card_soft"
+                    android:layout_marginBottom="10dp" />
+
+                <Button
+                    android:id="@+id/btnKhatmDuaaDirect"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="🤲 دعاء ختم القرآن الكريم"
+                    android:textColor="@color/primary_emerald"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_card_soft" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- ======================================================== -->
+        <!-- التبويب 5: الإعدادات والتحديثات (Settings Tab) -->
+        <!-- ======================================================== -->
+        <ScrollView
+            android:id="@+id/tabViewSettings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚙️ إعدادات التطبيق"
+                    android:textColor="@color/primary_emerald"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- بطاقة اختيار الثيم -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_soft"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginBottom="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎨 ثيمات القراءة والمظهر"
+                        android:textColor="@color/primary_emerald"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="اختر النمط المريح لعينيك:"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="10dp" />
+
+                    <Button
+                        android:id="@+id/btnSettingsThemeDialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="تغيير الثيم القرآني"
+                        android:background="@drawable/bg_button_outline"
+                        android:textColor="@color/primary_emerald"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <!-- بطاقة حجم الخط -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_soft"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginBottom="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔤 حجم الخط القرآني الافتراضي"
+                        android:textColor="@color/primary_emerald"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnSettingsFontDialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="ضبط حجم الخط"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_button_outline"
+                        android:textColor="@color/primary_emerald"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <!-- بطاقة التحديثات الرسمية -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_soft"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginBottom="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🚀 تحديثات التطبيق الرسمية"
+                        android:textColor="@color/primary_emerald"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSettingsVersionInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الإصدار الحالي: v1.0 • مستودع GitHub"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="10dp" />
+
+                    <Button
+                        android:id="@+id/btnSettingsCheckUpdates"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="فحص وجود تحديثات جديدة الآن"
+                        android:background="@drawable/bg_button_gold"
+                        android:textColor="@color/primary_emerald_dark"
+                        android:textStyle="bold"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <!-- بطاقة حول التطبيق -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_soft"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="تطبيق تِلَاوَتِي | Tilawati Quran"
+                        android:textColor="@color/primary_emerald"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="المصحف الشريف بالرسم العثماني الموثوق • صدقة جارية لوجه الله تعالى"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11sp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </ScrollView>
 
     </RelativeLayout>
 
-    <!-- شريط التنقل في وضع التقليب الجانبي (السابقة / التالية) -->
-    <LinearLayout
-        android:id="@+id/bottomFlipBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:background="#F4EEE1"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btnPrevSurah"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:text="⬅️ السورة السابقة"
-            android:textSize="12sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#2C251E"
-            android:layout_marginEnd="6dp" />
-
-        <TextView
-            android:id="@+id/tvPageIndex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1 / 114"
-            android:textColor="#8B6B23"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
-
-        <Button
-            android:id="@+id/btnNextSurah"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:text="السورة التالية ➡️"
-            android:textSize="12sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#2C251E"
-            android:layout_marginStart="6dp" />
-
-    </LinearLayout>
-
-    <!-- شريط الحركة التلقائية العائم لوضع التقليب العلوي (Auto-Scroll Dock) -->
-    <LinearLayout
-        android:id="@+id/dockAutoScroll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_dock"
-        android:padding="8dp"
-        android:gravity="center"
-        android:visibility="gone"
-        android:elevation="8dp">
-
-        <Button
-            android:id="@+id/btnPlayPauseScroll"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:text="▶"
-            android:textSize="18sp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/bg_button" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="الحركة التلقائية"
-                android:textColor="#2C251E"
-                android:textSize="11sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvSpeedValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="سرعة: 1.5x"
-                android:textColor="#5C5244"
-                android:textSize="10sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnSpeedDown"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:text="-"
-            android:textSize="16sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#2C251E" />
-
-        <SeekBar
-            android:id="@+id/seekBarSpeed"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:max="50"
-            android:progress="15" />
-
-        <Button
-            android:id="@+id/btnSpeedUp"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:text="+"
-            android:textSize="16sp"
-            android:background="@drawable/bg_button"
-            android:textColor="#2C251E" />
-
-    </LinearLayout>
-
 </RelativeLayout>
-
